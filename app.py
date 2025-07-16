@@ -67,6 +67,12 @@ def artista(id):
    return jsonify(res)
 # -------------------
 
+@app.route("/api")
+def api():
+   res = { 'urlArtistas' : url_for('artistas', _external=True),
+           'urlAlbums' : url_for('albums', _external=True)}
+   return jsonify(res)
+
 @app.route("/api/albums")
 def albums():
     args = request.args
